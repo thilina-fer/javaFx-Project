@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ancDashboard" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.alphamodificationstore.controller.DashboardPageController">
+    <children>
+        <VBox layoutX="14.0" layoutY="14.0" prefHeight="760.0" prefWidth="300.0" style="-fx-background-radius: 20; -fx-background-color: #273F4F;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <children>
+                <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="31.0" prefWidth="300.0" style="-fx-background-color: #0000;" styleClass="cur-button" stylesheets="@button.css" text="Customer">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin>
+                    <font>
+                        <Font name="Arial Bold" size="16.0" />
+                    </font>
+                </Button>
+                <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#btnGoToSupplierPageOnAction" prefHeight="31.0" prefWidth="300.0" style="-fx-background-color: #0000;" styleClass="cur-button" stylesheets="@button.css" text="Supplier">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <font>
+                        <Font name="Arial Bold" size="16.0" />
+                    </font>
+                </Button>
+                <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#btnGoToItemPageOnAction" prefHeight="31.0" prefWidth="300.0" style="-fx-background-color: #0000;" styleClass="cur-button" stylesheets="@button.css" text="Item">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <font>
+                        <Font name="Arial Bold" size="16.0" />
+                    </font>
+                </Button>
+                <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#btnGoToEmployeePageOnAction" prefHeight="31.0" prefWidth="300.0" style="-fx-background-color: #0000;" styleClass="cur-button" stylesheets="@button.css" text="Employee">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <font>
+                        <Font name="Arial Bold" size="16.0" />
+                    </font>
+                </Button>
+                <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#btnGoToUserPageOnAction" prefHeight="31.0" prefWidth="300.0" style="-fx-background-color: #0000;" styleClass="cur-button" stylesheets="@button.css" text="User Manage">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <font>
+                        <Font name="Arial Bold" size="16.0" />
+                    </font>
+                </Button>
+                <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#btnGoToPreOrderPageOnAction" prefHeight="31.0" prefWidth="300.0" style="-fx-background-color: #0000;" styleClass="cur-button" stylesheets="@button.css" text="Pre Orders">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <font>
+                        <Font name="Arial Bold" size="16.0" />
+                    </font>
+                </Button>
+                <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#btnGoToOrderPageOnAction" prefHeight="31.0" prefWidth="300.0" style="-fx-background-color: #0000;" styleClass="cur-button" stylesheets="@button.css" text="Orders">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <font>
+                        <Font name="Arial Bold" size="16.0" />
+                    </font>
+                </Button>
+            </children>
+        </VBox>
+        <AnchorPane layoutX="339.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fff; -fx-background-radius: 20;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="339.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <children>
+                <StackPane layoutX="244.0" layoutY="305.0" prefHeight="150.0" prefWidth="200.0" />
+                <ImageView fitHeight="185.0" fitWidth="225.0" layoutX="856.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="20.0">
+                    <image>
+                        <Image url="@../images/2-removebg-preview.png" />
+                    </image>
+                </ImageView>
+                <StackPane layoutX="312.0" layoutY="167.0" prefHeight="454.0" prefWidth="478.0">
+                    <children>
+                        <ImageView fitHeight="589.0" fitWidth="476.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/bc3b4feed2bd4307b8ebe31f85dceb58-removebg-preview.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </StackPane>
+            </children></AnchorPane>
+    </children>
+</AnchorPane>
