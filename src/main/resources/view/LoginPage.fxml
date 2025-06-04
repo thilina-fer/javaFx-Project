@@ -23,7 +23,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                     </VBox.margin>
                     <children>
-                        <Label prefHeight="72.0" prefWidth="134.0" text="Sign in">
+                        <Label fx:id="lblSignIn" prefHeight="72.0" prefWidth="134.0" text="Sign in">
                             <font>
                                 <Font name="Pristina" size="44.0" />
                             </font>

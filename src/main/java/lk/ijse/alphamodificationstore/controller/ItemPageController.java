@@ -9,11 +9,18 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.alphamodificationstore.db.DBConnection;
 import lk.ijse.alphamodificationstore.dto.ItemDto;
 import lk.ijse.alphamodificationstore.dto.Tm.ItemTm;
 import lk.ijse.alphamodificationstore.model.ItemModel;
 import lk.ijse.alphamodificationstore.util.CrudUtil;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -328,6 +335,26 @@ public class ItemPageController implements Initializable {
     }
 
     public void btnReportOnAction(ActionEvent event) {
+        try {
+            InputStream reportStream = getClass().getResourceAsStream("/reports/Item.jrxmlItem.jrxml");
+            if (reportStream == null) {
+                throw new RuntimeException("Report file not found");
+
+            }
+            JasperReport report = JasperCompileManager.compileReport(reportStream);
+            Connection connection = DBConnection.getInstance().getConnection();
+            Map<String, Object> params = new HashMap<>();
+            params.put("P_Date", LocalDate.now().toString());
+            JasperPrint jasperPrint = JasperFillManager.fillReport(
+                    report,
+                    params,
+                    connection
+            );
+            JasperViewer.viewReport(jasperPrint, false);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 

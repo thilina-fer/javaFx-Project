@@ -244,7 +244,7 @@ public class UserPageController implements Initializable {
     }
 
     public void goToDashboard(MouseEvent mouseEvent) {
-        navigateTo("/view/Dashboard.fxml");
+        navigateTo("/view/DashboardPage.fxml");
     }
 
     public void search(KeyEvent keyEvent) {

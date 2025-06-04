@@ -1,11 +1,11 @@
 .cur-button {
-    -fx-background-color: #8DD8FF;
-    -fx-text-fill: #7AE2CF;
+    -fx-background-color: #ffb4a2;
+    -fx-text-fill: #003459;
     -fx-font-size: 15px;
     -fx-padding: 10px 10px;
     -fx-background-radius: 30px;
     -fx-border-radius: 30px;
-    -fx-border-color: transparent;
+    -fx-border-color: 003459;
     -fx-border-width: 5px;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 5, 0, 0, 2);
     -fx-cursor: hand;
@@ -13,6 +13,6 @@
 }
 
 .cur-button:hover {
-    -fx-background-color: #8DD8FF;
+    -fx-background-color: #003459;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 8, 0, 0, 3);
 }

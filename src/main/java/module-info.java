@@ -5,6 +5,8 @@ module lk.ijse.alphamodificationstore {
     requires static lombok;
     requires java.naming;
     requires mysql.connector.j;
+    requires java.mail;
+    requires net.sf.jasperreports.core;
 
 
     opens lk.ijse.alphamodificationstore.controller to javafx.fxml;

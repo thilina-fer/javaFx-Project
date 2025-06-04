@@ -66,6 +66,7 @@ public class LoginPageController {
                     Stage dashboardStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                     dashboardStage.setScene(new Scene(dashboardRoot));
                     dashboardStage.setTitle("Alpha Modifications");
+                    dashboardStage.setMaximized(true);
                     dashboardStage.show();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -112,6 +113,7 @@ public class LoginPageController {
     }
 
     public void goToforgotPassword(MouseEvent mouseEvent) {
-        navigateTo("/view/FogotPasswordPage.fxml");
+                            navigateTo("/view/ForgotPasswordPage.fxml");
     }
+
 }
