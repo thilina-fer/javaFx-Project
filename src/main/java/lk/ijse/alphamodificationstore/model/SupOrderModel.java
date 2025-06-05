@@ -49,7 +49,7 @@ public class SupOrderModel {
 
     public boolean saveNewOrderItem(String supplyOrderId, String itemId, int cartQty, double unitPrice) {
         try {
-            return CrudUtil.execute("INSERT INTO sup_order_details (sup_order_id, item_id, qty, unit_price) VALUES (?, ?, ?, ?)",
+            return CrudUtil.execute("INSERT INTO sup_order_details VALUES (?, ?, ?, ?)",
                     supplyOrderId,
                     itemId,
                     cartQty,

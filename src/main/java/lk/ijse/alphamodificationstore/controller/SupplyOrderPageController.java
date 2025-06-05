@@ -113,10 +113,10 @@ public class SupplyOrderPageController implements Initializable {
         int supCartQty = Integer.parseInt(cartQtyString);
         int stockQty = Integer.parseInt(lblItemQty.getText());
 
-        if (stockQty < 2){
+/*        if (stockQty < 2){
             new Alert(Alert.AlertType.ERROR, "Already have this item on stock").show();
             return;
-        }
+        }*/
         String itemName = lblItemName.getText();
         double unitPrice = Double.parseDouble(lblItemPrice.getText());
         double total = supCartQty * unitPrice;
@@ -255,8 +255,18 @@ public class SupplyOrderPageController implements Initializable {
                 new Alert(Alert.AlertType.ERROR, "Cart is Empty").show();
                 return;
             }
+
             boolean allItemsSaved = true;
             for( SupOrderCartTm cart : supCartData ){
+                boolean isSupplierOrdersSaved = supplierModel.saveNewRow(
+                        supplyOrderId,
+                        cart.getSupplierId(),
+                        date
+                );
+                if (!isSupplierOrdersSaved){
+                    connection.rollback();
+                    new Alert(Alert.AlertType.ERROR, "Fail to save supplier order").show();
+                }
                 boolean isItemSaved = supOrderModel.saveNewOrderItem(
                         supplyOrderId,
                         cart.getItemId(),
@@ -264,17 +274,18 @@ public class SupplyOrderPageController implements Initializable {
                         cart.getUnitPrice()
                 );
                 if (!isItemSaved) {
-                    allItemsSaved = false;
-                    break;
+                    connection.rollback();
+                    new Alert(Alert.AlertType.ERROR, "Fail to save item order").show();
                 }
                 boolean isItemUpdated = itemModel.updateItemQty(
                         cart.getItemId(),
                         cart.getCartQty()
                 );
                 if (!isItemUpdated) {
-                    allItemsSaved = false;
-                    break;
+                    connection.rollback();
+                    new Alert(Alert.AlertType.ERROR, "Fail to update item order").show();
                 }
+
             }
             if (!allItemsSaved) {
                 connection.rollback();
@@ -295,6 +306,7 @@ public class SupplyOrderPageController implements Initializable {
                 if (connection != null) {
                     connection.commit();
                     connection.setAutoCommit(true);
+                    new Alert(Alert.AlertType.INFORMATION, "Order Placed").show();
                 }
             } catch (SQLException e) {
                 e.printStackTrace();

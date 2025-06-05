@@ -1,5 +1,6 @@
 package lk.ijse.alphamodificationstore.model;
 
+import javafx.scene.control.Label;
 import lk.ijse.alphamodificationstore.dto.SupplierDto;
 import lk.ijse.alphamodificationstore.util.CrudUtil;
 
@@ -109,5 +110,14 @@ public class SupplierModel {
             );
         }
         return null; // or throw an exception if preferred
+    }
+
+    public boolean saveNewRow(String supplyOrderId, String supplierId, String orderDate) throws SQLException {
+        return CrudUtil.execute(
+                "INSERT INTO supplier_orders VALUES (?,?,?)",
+                supplyOrderId,
+                supplierId,
+                orderDate
+        );
     }
 }
