@@ -11,6 +11,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import java.nio.charset.MalformedInputException;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 public class SendMail {
     public static boolean sendMail(String recepient , int otp){
@@ -26,13 +27,14 @@ public class SendMail {
             String myAccountEmail = "dilshanfernando20031010@gmail.com";
             String password = "mgal rlek xdpp xruy";
 
-           */
-/* Session session = Session.getInstance(properties , new Authenticator(){
+
+
+ Session session = Session.getInstance(properties , new Authenticator(){
                 @Override
                 protected PasswordAuthentication getPasswordAuthentication() {
                     return new PasswordAuthentication(myAccountEmail, password.toCharArray());
                 }
-            });*//*
+            });
 
 
 //            javax.mail.Session session = javax.mail.Session.getInstance(properties, new Authenticator() {
@@ -76,21 +78,31 @@ public class SendMail {
 }
 */
 
+
+
 package lk.ijse.alphamodificationstore.controller;
 
-import javafx.scene.control.Alert;
+//import javafx.scene.control.Alert;
+//
+//import javax.mail.Message;
+//import javax.mail.Session;
+//import javax.mail.Transport;
+//import javax.mail.internet.InternetAddress;
+//import javax.mail.internet.MimeMessage;
+//import java.util.Properties;
+//import java.util.logging.Logger;
 
-import javax.mail.Message;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+
+import jakarta.mail.Authenticator;
+import jakarta.mail.Session;
+
 import java.util.Properties;
-import java.util.logging.Logger;
 
 public class SendMail {
+    public static boolean sendMail(String email, int otp) {
+      return true;}
 
-    private static final Logger logger = Logger.getLogger(SendMail.class.getName());
+    /*private static final Logger logger = Logger.getLogger(SendMail.class.getName());
 
     public static boolean sendMail(String recepient, int otp) {
         try {
@@ -147,4 +159,4 @@ public class SendMail {
         }
         return null;
     }
-}
+}*/

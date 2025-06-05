@@ -146,13 +146,22 @@ public class SignUpPageController {
             ));
             if (isSaved) {
                 new Alert(Alert.AlertType.INFORMATION, "User has been created").show();
+
+                String subject = "Welcome to Alpha Modifications";
+                String message = "Dear " + inputUsername + ",\n\n" +
+                        "Thank you for signing up with Alpha Modifications. Your account has been successfully created.\n\n" +
+                        "Best regards,\n" +
+                        "Alpha Modifications Team";
+
+                EmailUtil.sendEmail(inputEmail , subject , message);
+
                 btnSignInOnAction(actionEvent);
             }else {
                 new Alert(Alert.AlertType.ERROR, "User has not been saved").show();
             }
         }catch (Exception e){
             e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "Sign Up Faild").show();
+            new Alert(Alert.AlertType.ERROR, "Sign Up Failed").show();
         }
     }
 

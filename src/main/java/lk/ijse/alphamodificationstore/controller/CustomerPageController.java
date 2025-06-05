@@ -13,8 +13,8 @@ import lk.ijse.alphamodificationstore.dto.CustomerDto;
 import lk.ijse.alphamodificationstore.dto.Tm.CustomerTm;
 import lk.ijse.alphamodificationstore.model.CustomerModel;
 
-import javax.mail.Session;
-import javax.mail.internet.MimeMessage;
+//import javax.mail.Session;
+//import javax.mail.internet.MimeMessage;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;

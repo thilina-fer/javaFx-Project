@@ -5,7 +5,7 @@ module lk.ijse.alphamodificationstore {
     requires static lombok;
     requires java.naming;
     requires mysql.connector.j;
-    requires java.mail;
+    requires jakarta.mail;
     requires net.sf.jasperreports.core;
 
 
