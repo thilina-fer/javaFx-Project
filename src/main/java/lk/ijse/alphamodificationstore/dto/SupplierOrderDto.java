@@ -9,9 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 
 public class SupplierOrderDto {
-    private String supplyOrderId;
+    private String orderId;
     private String supplierId;
-    private String userId;
     private String date;
-    private String itemId;
 }

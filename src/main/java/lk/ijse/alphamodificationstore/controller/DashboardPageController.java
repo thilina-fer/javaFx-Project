@@ -1,7 +1,6 @@
 package lk.ijse.alphamodificationstore.controller;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
+import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -26,8 +25,10 @@ public class DashboardPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        animateLabelTyping1();
-        animateLabelTyping2();
+        //animateLabelTyping1();
+       // animateLabelTyping2();
+        animateLabelZoomIn();
+        animateLabelZoomIn2();
 
     }
     private void navigateTo(String path) {
@@ -83,38 +84,94 @@ public class DashboardPageController implements Initializable {
         navigateTo("/view/OrderPage.fxml");
     }
 
-    private void animateLabelTyping1(){
-        String loginText = (alpha).getText();
-        int animationDuration = 250;
+//    private void animateLabelTyping1(){
+//        String loginText = (alpha).getText();
+//        int animationDuration = 250;
+//
+//        (alpha).setText("");
+//        Timeline typingAnimation = new Timeline();// Duration of animation in milliseconds
+//
+//        for (int i = 0; i <= loginText.length(); i++) {
+//            int finalI = i;
+//            KeyFrame keyFrame = new KeyFrame(
+//                    Duration.millis(animationDuration * i),
+//                    event -> (alpha).setText(loginText.substring(0, finalI))
+//            );
+//            typingAnimation.getKeyFrames().add(keyFrame);
+//        }
+//        typingAnimation.play();
+//    }
+//   private void animateLabelTyping2(){
+//       /* String loginText = (alpha1).getText();
+//        int animationDuration = 250;
+//
+//        (alpha1).setText("");
+//        Timeline typingAnimation = new Timeline();// Duration of animation in milliseconds
+//
+//        for (int i = 0; i <= loginText.length(); i++) {
+//            int finalI = i;
+//            KeyFrame keyFrame = new KeyFrame(
+//                    Duration.millis(animationDuration * i),
+//                    event -> (alpha1).setText(loginText.substring(0, finalI))
+//            );
+//            typingAnimation.getKeyFrames().add(keyFrame);
+//        }
+//        typingAnimation.play();
+//    }
 
-        (alpha).setText("");
-        Timeline typingAnimation = new Timeline();// Duration of animation in milliseconds
+    private void animateLabelZoomIn() {
+        String loginText = alpha.getText();
+        alpha.setText(loginText);
 
-        for (int i = 0; i <= loginText.length(); i++) {
-            int finalI = i;
-            KeyFrame keyFrame = new KeyFrame(
-                    Duration.millis(animationDuration * i),
-                    event -> (alpha).setText(loginText.substring(0, finalI))
-            );
-            typingAnimation.getKeyFrames().add(keyFrame);
-        }
-        typingAnimation.play();
+        // Set initial scale and opacity
+        alpha.setScaleX(0.5);
+        alpha.setScaleY(0.5);
+        alpha.setOpacity(0);
+
+        // Create scale transition (zoom effect)
+        ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(1500), alpha);
+        scaleTransition.setFromX(0.5);
+        scaleTransition.setFromY(0.5);
+        scaleTransition.setToX(1);
+        scaleTransition.setToY(1);
+
+        // Create fade-in transition
+        FadeTransition fadeTransition = new FadeTransition(Duration.millis(1500), alpha);
+        fadeTransition.setFromValue(0);
+        fadeTransition.setToValue(1);
+
+        // Play both transitions together
+        ParallelTransition parallelTransition = new ParallelTransition(scaleTransition, fadeTransition);
+        parallelTransition.play();
     }
-    private void animateLabelTyping2(){
-        String loginText = (alpha1).getText();
-        int animationDuration = 250;
+    private void animateLabelZoomIn2() {
+        String loginText = alpha1.getText();
+        alpha1.setText(loginText);
 
-        (alpha1).setText("");
-        Timeline typingAnimation = new Timeline();// Duration of animation in milliseconds
+        // Set initial scale and opacity
+        alpha1.setScaleX(0.5);
+        alpha1.setScaleY(0.5);
+        alpha1.setOpacity(0);
 
-        for (int i = 0; i <= loginText.length(); i++) {
-            int finalI = i;
-            KeyFrame keyFrame = new KeyFrame(
-                    Duration.millis(animationDuration * i),
-                    event -> (alpha1).setText(loginText.substring(0, finalI))
-            );
-            typingAnimation.getKeyFrames().add(keyFrame);
-        }
-        typingAnimation.play();
+        // Create scale transition (zoom effect)
+        ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(1500), alpha1);
+        scaleTransition.setFromX(0.5);
+        scaleTransition.setFromY(0.5);
+        scaleTransition.setToX(1);
+        scaleTransition.setToY(1);
+
+        // Create fade-in transition
+        FadeTransition fadeTransition = new FadeTransition(Duration.millis(1500), alpha1);
+        fadeTransition.setFromValue(0);
+        fadeTransition.setToValue(1);
+
+        // Play both transitions together
+        ParallelTransition parallelTransition = new ParallelTransition(scaleTransition, fadeTransition);
+        parallelTransition.play();
+    }
+
+    public void btnGoToSupplierOrderPageOnAction(ActionEvent event) {
+        navigateTo("/view/SupplierOrderPage.fxml");
     }
 }
+

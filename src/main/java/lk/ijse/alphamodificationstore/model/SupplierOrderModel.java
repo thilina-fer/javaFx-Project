@@ -1,3 +1,4 @@
+/*
 package lk.ijse.alphamodificationstore.model;
 
 import lk.ijse.alphamodificationstore.dto.SupplierOrderDto;
@@ -60,7 +61,8 @@ public class SupplierOrderModel {
         }
         return tableString + "001";
     }
-   /* public ArrayList<SupplierOrderDto> getSupplierOrderDetailsFromSupplierOrderId(String id) throws SQLException {
+   */
+/* public ArrayList<SupplierOrderDto> getSupplierOrderDetailsFromSupplierOrderId(String id) throws SQLException {
         ResultSet rst = CrudUtil.execute("SELECT * FROM so_id WHERE so_id = ?", id);
         ArrayList<SupplierOrderDto> dtos = new ArrayList<>();
         if (rst.next()) {
@@ -73,7 +75,8 @@ public class SupplierOrderModel {
             ));
         }
         return dtos;
-    }*/
+    }*//*
+
 
     public ArrayList<SupplierOrderDto> searchSupplierOrders(String searchText) throws SQLException {
         ArrayList<SupplierOrderDto> dtos = new ArrayList<>();
@@ -134,3 +137,4 @@ public class SupplierOrderModel {
         return itemDetails;
     }
 }
+*/

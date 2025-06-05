@@ -2,6 +2,7 @@ package lk.ijse.alphamodificationstore.model;
 
 import lk.ijse.alphamodificationstore.dto.CartDto;
 import lk.ijse.alphamodificationstore.dto.ItemDto;
+import lk.ijse.alphamodificationstore.dto.SupOrderCartDto;
 import lk.ijse.alphamodificationstore.util.CrudUtil;
 
 import java.sql.ResultSet;
@@ -131,4 +132,12 @@ public class ItemModel {
         }
         return null;
     }
+    public boolean reduceQtyNew(SupOrderCartDto supOrderCartDto) throws SQLException {
+        return CrudUtil.execute("UPDATE item SET quantity = quantity - ? WHERE item_id = ?",
+                supOrderCartDto.getQuantity(),
+                supOrderCartDto.getItemId()
+        );
+    }
+
+
 }

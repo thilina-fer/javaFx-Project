@@ -1,3 +1,4 @@
+/*
 package lk.ijse.alphamodificationstore.controller;
 
 import javafx.collections.FXCollections;
@@ -11,7 +12,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.alphamodificationstore.dto.SupplierOrderDto;
 import lk.ijse.alphamodificationstore.dto.Tm.SupplierOrderTm;
-import lk.ijse.alphamodificationstore.model.SupplierOrderModel;
+import lk.ijse.alphamodificationstore.model.SupOrderModel;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -41,6 +42,7 @@ public class SupplierOrderPageController implements Initializable {
     public Button btnReset;
     public TextField searchField;
     public AnchorPane ancSupplierOrderPage;
+    public Label lblOrderId;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -265,7 +267,8 @@ public class SupplierOrderPageController implements Initializable {
         }
     }
 
-   /* private void loadSearchResults(String phoneNum) {
+   */
+/* private void loadSearchResults(String phoneNum) {
         try {
             ArrayList<SupplierOrderDto> contacts = supplierOrderModel.getSupplierOrderDetailsFromSupplierOrderId(phoneNum);
             if (contacts == null) {
@@ -286,7 +289,8 @@ public class SupplierOrderPageController implements Initializable {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Error when display results").show();
         }
-    }*/
+    }*//*
+
 
     private void loadSupplierDetails() throws SQLException {
         comboSupplierId.setItems(FXCollections.observableArrayList(supplierOrderModel.getAllSupplierDetails()));
@@ -299,3 +303,4 @@ public class SupplierOrderPageController implements Initializable {
         comboItemId.setItems(FXCollections.observableArrayList(supplierOrderModel.getAllItemDetails()));
     }
 }
+*/

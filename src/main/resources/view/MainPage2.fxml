@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ancMainPage" prefHeight="700.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.alphamodificationstore.controller.MainPage2Controller">
+   <children>
+      <VBox layoutX="32.0" layoutY="53.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 5;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <VBox prefHeight="301.0" prefWidth="458.0">
+               <VBox.margin>
+                  <Insets left="350.0" right="350.0" top="150.0" />
+               </VBox.margin>
+               <children>
+                  <HBox prefHeight="158.0" prefWidth="458.0">
+                     <children>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                           <center>
+                              <Label fx:id="lblAlpha" prefHeight="158.0" prefWidth="686.0" text="A L P H A" textFill="RED" BorderPane.alignment="CENTER">
+                                 <font>
+                                    <Font name="NSimSun" size="143.0" />
+                                 </font>
+                              </Label>
+                           </center>
+                        </BorderPane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="158.0" prefWidth="458.0">
+                     <children>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                           <right>
+                              <Label fx:id="lblModifications" prefHeight="158.0" prefWidth="686.0" text="MODIFICATIONS" BorderPane.alignment="CENTER">
+                                 <font>
+                                    <Font name="NSimSun" size="100.0" />
+                                 </font>
+                              </Label>
+                           </right>
+                        </BorderPane>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="-65.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="301.0" prefWidth="458.0">
+               <VBox.margin>
+                  <Insets left="400.0" right="500.0" />
+               </VBox.margin>
+               <children>
+                  <HBox prefHeight="50.0" prefWidth="359.0">
+                     <children>
+                        <BorderPane prefHeight="60.0" prefWidth="359.0" HBox.hgrow="ALWAYS">
+                           <center>
+                              <Button mnemonicParsing="false" onAction="#btnsignInOnAction" prefHeight="38.0" prefWidth="186.0" style="-fx-background-color: #ffff;" stylesheets="@button.css" text="Sign in" BorderPane.alignment="CENTER">
+                                 <font>
+                                    <Font name="NSimSun" size="22.0" />
+                                 </font>
+                              </Button>
+                           </center>
+                        </BorderPane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="50.0" prefWidth="359.0">
+                     <children>
+                        <Label prefHeight="30.0" prefWidth="212.0" text="Did you dont have an acount ? ">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="168.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Hyperlink onAction="#btnSignUpOnAction" prefHeight="30.0" prefWidth="79.0" text="Sign Up">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="8.0" />
+                           </HBox.margin>
+                        </Hyperlink>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

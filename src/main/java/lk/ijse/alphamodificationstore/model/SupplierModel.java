@@ -89,4 +89,25 @@ public class SupplierModel {
         }
         return dtos;
     }
+
+    public ArrayList<String> getSupplierIds() throws SQLException {
+        ResultSet resultSet = CrudUtil.execute("SELECT supplier_id FROM supplier");
+        ArrayList<String> supplierIds = new ArrayList<>();
+        while (resultSet.next()) {
+            supplierIds.add(resultSet.getString(1));
+        }
+        return supplierIds;
+    }
+    public SupplierDto findSupplierById(String supplierId) throws SQLException {
+        ResultSet resultSet = CrudUtil.execute("SELECT * FROM supplier WHERE supplier_id = ?", supplierId);
+        if (resultSet.next()) {
+            return new SupplierDto(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4)
+            );
+        }
+        return null; // or throw an exception if preferred
+    }
 }

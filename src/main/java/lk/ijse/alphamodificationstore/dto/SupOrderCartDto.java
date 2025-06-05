@@ -1,27 +1,21 @@
 package lk.ijse.alphamodificationstore.dto;
 
 import javafx.scene.control.Button;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Setter
-@Getter
-@ToString
+@Data
 
-public class CartDto {
+public class SupOrderCartDto {
     private String orderId;
-    private String customerContact;
+    private String supplierId;
     private String itemId;
     private String itemName;
     private int quantity;
     private double unitPrice;
     private double totalPrice;
     private Button btnRemove;
-
-    public CartDto(String itemId, int quantity) {
-        this.itemId = itemId;
-        this.quantity = quantity;
-    }
-
 }
