@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.alphamodificationstore.db.DBConnection;
 import lk.ijse.alphamodificationstore.dto.ItemDto;
 import lk.ijse.alphamodificationstore.dto.SupOrderCartDto;
 import lk.ijse.alphamodificationstore.dto.SupplierOrderDto;
@@ -18,6 +19,7 @@ import lk.ijse.alphamodificationstore.model.SupOrderModel;
 import lk.ijse.alphamodificationstore.model.SupplierModel;
 
 import java.net.URL;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -144,7 +146,7 @@ public class SupplyOrderPageController implements Initializable {
         supCartData.add(tm);
         txtAddToCartQty.clear();
     }
-
+/*
     public void btnPlaceOrderOnAAction(ActionEvent event) {
 
         if (supCartData.isEmpty()){
@@ -185,7 +187,7 @@ public class SupplyOrderPageController implements Initializable {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Error").show();
         }
-    }
+    }*/
     public void cmbSupplierOnAction(ActionEvent event) throws SQLException {
         String id = (String) cmbSupplierId.getValue();
         String name = String.valueOf(supplierModel.findSupplierById(id));
@@ -236,6 +238,68 @@ public class SupplyOrderPageController implements Initializable {
         }catch (Exception e){
             new Alert(Alert.AlertType.ERROR, "Something went wrong").show();
             e.printStackTrace();
+        }
+    }
+
+    public void btnPlaceOrderOnAction(ActionEvent event) {
+
+        Connection connection= null;
+        try {
+            connection = DBConnection.getInstance().getConnection();
+            connection.setAutoCommit(false);
+
+            String supplyOrderId = lblOrderId.getText();
+            String itemId = (String) cmbItemId.getValue();
+            String date = orderDate.getText();
+            if (supCartData.isEmpty()) {
+                new Alert(Alert.AlertType.ERROR, "Cart is Empty").show();
+                return;
+            }
+            boolean allItemsSaved = true;
+            for( SupOrderCartTm cart : supCartData ){
+                boolean isItemSaved = supOrderModel.saveNewOrderItem(
+                        supplyOrderId,
+                        cart.getItemId(),
+                        cart.getCartQty(),
+                        cart.getUnitPrice()
+                );
+                if (!isItemSaved) {
+                    allItemsSaved = false;
+                    break;
+                }
+                boolean isItemUpdated = itemModel.updateItemQty(
+                        cart.getItemId(),
+                        cart.getCartQty()
+                );
+                if (!isItemUpdated) {
+                    allItemsSaved = false;
+                    break;
+                }
+            }
+            if (!allItemsSaved) {
+                connection.rollback();
+                new Alert(Alert.AlertType.ERROR, "Fail to save supply order or update inventory ").show();
+            }
+        } catch (SQLException e) {
+            try {
+                if (connection != null) {
+                    connection.rollback();
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Failed to place order.").show();
+        }finally {
+            try {
+                if (connection != null) {
+                    connection.commit();
+                    connection.setAutoCommit(true);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+                new Alert(Alert.AlertType.ERROR, "Failed to commit transaction.").show();
+            }
         }
     }
 }

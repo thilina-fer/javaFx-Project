@@ -46,4 +46,48 @@ public class SupOrderModel {
             connection.setAutoCommit(true);
         }
     }
+
+    public boolean saveNewOrderItem(String supplyOrderId, String itemId, int cartQty, double unitPrice) {
+        try {
+            return CrudUtil.execute("INSERT INTO sup_order_details (sup_order_id, item_id, qty, unit_price) VALUES (?, ?, ?, ?)",
+                    supplyOrderId,
+                    itemId,
+                    cartQty,
+                    unitPrice
+            );
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
+/*public void btnPlaceOrderOnAction(ActionEvent event) {
+    Connection connection = null;
+    try {
+        connection = DBConnection.getInstance().getConnection();
+        connection.setAutoCommit(false);
+
+        String supplyOrderId = lblOrderId.getText();
+        String supplierId = (String) cmbSupplierId.getValue();
+        String date = orderDate.getText();
+
+        if (supCartData.isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "Cart is Empty").show();
+            return;
+        }
+
+        boolean allSuccess = true;
+        for (SupOrderCartTm cartItem : supCartData) {
+            // Insert into sup_order_details
+            String insertDetailSql = "INSERT INTO sup_order_details (order_id, item_id, qty, unit_price, total) VALUES (?, ?, ?, ?, ?)";
+            try (var ps = connection.prepareStatement(insertDetailSql)) {
+                ps.setString(1, supplyOrderId);
+                ps.setString(2, cartItem.getItemId());
+                ps.setInt(3, cartItem.getCartQty());
+                ps.setDouble(4, cartItem.getUnitPrice());
+                ps.setDouble(5, cartItem.getTotal());
+                if (ps.executeUpdate() != 1) {
+                    allSuccess = false;
+                    break;
+                }
+            }*/

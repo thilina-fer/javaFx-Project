@@ -140,4 +140,15 @@ public class ItemModel {
     }
 
 
+    public boolean updateItemQty(String itemId, int cartQty) {
+        try {
+            return CrudUtil.execute("UPDATE item SET quantity = quantity + ? WHERE item_id = ?",
+                    cartQty,
+                    itemId
+            );
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

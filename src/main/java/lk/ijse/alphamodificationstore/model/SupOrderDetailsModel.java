@@ -26,7 +26,7 @@ public class SupOrderDetailsModel {
     }
 
     private boolean saveSupOrderDetail(String orderId, SupOrderCartDto supOrderCartDto) throws SQLException {
-        return CrudUtil.execute("INSER INTO sup_order_details (SUP_order_id, item_id, qty, unit_price) VALUES (?, ?, ?, ?)",
+        return CrudUtil.execute("INSERT INTO sup_order_details (sup_order_id, item_id, qty, unit_price) VALUES (?, ?, ?, ?)",
                 orderId,
                 supOrderCartDto.getItemId(),
                 supOrderCartDto.getQuantity(),
@@ -34,7 +34,7 @@ public class SupOrderDetailsModel {
                 );
     }
     public static String getNextSupOrderId() throws SQLException , ClassNotFoundException{
-        ResultSet resultSet = CrudUtil.execute("SELECT sup_order_id FROM supplier_order ORDER BY sup_order_id DESC LIMIT 1");
+        ResultSet resultSet = CrudUtil.execute("SELECT sup_order_id FROM supplier_orders ORDER BY sup_order_id DESC LIMIT 1");
         String  tableString = "SO";
 
         if(resultSet.next()){
