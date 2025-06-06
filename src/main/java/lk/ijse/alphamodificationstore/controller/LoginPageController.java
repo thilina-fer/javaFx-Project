@@ -113,7 +113,7 @@ public class LoginPageController {
     }
 
     public void goToforgotPassword(MouseEvent mouseEvent) {
-                            navigateTo("/view/ForgotPasswordPage.fxml");
+                            navigateTo("/view/ForgotPassword.fxml");
     }
 
 }

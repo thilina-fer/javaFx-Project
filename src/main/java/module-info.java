@@ -7,6 +7,7 @@ module lk.ijse.alphamodificationstore {
     requires mysql.connector.j;
     requires jakarta.mail;
     requires net.sf.jasperreports.core;
+    requires java.desktop;
 
 
     opens lk.ijse.alphamodificationstore.controller to javafx.fxml;
