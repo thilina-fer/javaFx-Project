@@ -61,6 +61,26 @@ public class MainPage2Controller implements Initializable {
         parallel.play();
     }
 
+    private void animateLabelSlideIn() {
+        String loginText = lblModifications.getText();
+        lblModifications.setText(loginText); // Make sure text is visible
+        lblModifications.setOpacity(0);      // Start invisible
+        lblModifications.setTranslateX(-50); // Start off-screen to the left
+
+        // Slide-in animation
+        TranslateTransition slide = new TranslateTransition(Duration.millis(2000), lblModifications);
+        slide.setFromX(-100);
+        slide.setToX(0);
+
+        // Fade-in animation
+        FadeTransition fade = new FadeTransition(Duration.millis(2000), lblModifications);
+        fade.setFromValue(0);
+        fade.setToValue(1);
+
+        // Play both at once
+        ParallelTransition parallel = new ParallelTransition(slide, fade);
+        parallel.play();
+    }
 
 
     public void btnsignInOnAction(ActionEvent event) {
