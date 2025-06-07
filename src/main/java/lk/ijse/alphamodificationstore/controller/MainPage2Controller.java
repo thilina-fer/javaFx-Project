@@ -44,7 +44,7 @@ public class MainPage2Controller implements Initializable {
         String loginText = lblAlpha.getText();
         lblAlpha.setText(loginText); // Make sure text is visible
         lblAlpha.setOpacity(0);      // Start invisible
-        lblAlpha.setTranslateX(-50); // Start off-screen to the left
+        lblAlpha.setTranslateX(50); // Start off-screen to the left
 
         // Slide-in animation
         TranslateTransition slide = new TranslateTransition(Duration.millis(2000), lblAlpha);

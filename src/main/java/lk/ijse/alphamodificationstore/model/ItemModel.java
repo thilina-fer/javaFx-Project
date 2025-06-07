@@ -33,7 +33,7 @@ public class ItemModel {
     }
 
     public boolean deleteItem(String itemId) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("DELETE FROM item WHERE item_id ? ",
+        return CrudUtil.execute("DELETE FROM item WHERE item_id = ? ",
                 itemId);
     }
 

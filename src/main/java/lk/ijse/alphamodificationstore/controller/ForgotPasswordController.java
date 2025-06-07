@@ -135,4 +135,19 @@ public class ForgotPasswordController {
             new Alert(Alert.AlertType.ERROR, "Invalid OTP Code").show();
         }
     }
+
+    public void validatePassword(javafx.event.ActionEvent event) {
+        String password = txtPassword.getText().trim();
+        if (!password.matches(passwordPattern)) {
+            txtPassword.setStyle(errorStyle);
+            new Alert(Alert.AlertType.ERROR, "Invalid Password").show();
+        }else {
+            if (!txtPassword.getText().trim().equals(txtConfirmPassword.getText().trim())) {
+                new Alert(Alert.AlertType.ERROR, "Invalid Confirm Password").show();
+            }else {
+                txtPassword.setStyle(normalStyle);
+                updatePassword(password);
+            }
+        }
+    }
 }

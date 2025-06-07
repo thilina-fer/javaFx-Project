@@ -190,9 +190,10 @@ public class SupplyOrderPageController implements Initializable {
     }*/
     public void cmbSupplierOnAction(ActionEvent event) throws SQLException {
         String id = (String) cmbSupplierId.getValue();
-        String name = String.valueOf(supplierModel.findSupplierById(id));
+        String name = supplierModel.findSupplierById(id).getSupplierName();
         lblSupplierName.setText(name);
     }
+
 
     public void cmbItemOnAction(ActionEvent event) throws SQLException {
         String itemId = (String) cmbItemId.getValue();

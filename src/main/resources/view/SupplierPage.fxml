@@ -49,11 +49,6 @@
                                         <Font size="14.0" />
                                     </font>
                                 </Label>
-                                <Label onMouseClicked="#goToSupplierOrderPage" text="   &gt;    SupplierOrders">
-                                    <HBox.margin>
-                                        <Insets top="4.0" />
-                                    </HBox.margin>
-                                </Label>
                             </children>
                         </HBox>
                         <HBox prefHeight="48.0" prefWidth="350.0" style="-fx-background-radius: 20;">

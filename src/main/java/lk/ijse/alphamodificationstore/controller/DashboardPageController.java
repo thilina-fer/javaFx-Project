@@ -144,6 +144,7 @@ public class DashboardPageController implements Initializable {
         ParallelTransition parallelTransition = new ParallelTransition(scaleTransition, fadeTransition);
         parallelTransition.play();
     }
+
     private void animateLabelZoomIn2() {
         String loginText = alpha1.getText();
         alpha1.setText(loginText);
